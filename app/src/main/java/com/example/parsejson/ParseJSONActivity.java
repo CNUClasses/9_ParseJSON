@@ -54,10 +54,10 @@ public class ParseJSONActivity extends Activity {
 		// notify user of problem? Not very good, maybe wait a little while and
 		// try later? remember make users life easier
 		ConnectivityCheck myCheck = new ConnectivityCheck(this);
-		if (myCheck.isNetworkReachableAlertUserIfNot()) {
+		if (myCheck.isNetworkReachable()) {
 			
 			//A common async task
-			DownloadTask myTask = new DownloadTask(this);
+			DownloadTask_KP myTask = new DownloadTask_KP(this);
 
 			myTask.setnameValuePair("Name1","Value1");
 			myTask.setnameValuePair("Name2","Value2");
