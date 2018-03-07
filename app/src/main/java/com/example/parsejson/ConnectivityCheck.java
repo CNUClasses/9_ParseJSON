@@ -27,22 +27,6 @@ public class ConnectivityCheck {
         return (current.getState() == NetworkInfo.State.CONNECTED);
     }
 
-    /**
-     * @return very cheesy, splash up a big cant do it screen instead of doing something useful
-     * like waiting a bit, testing connectivity, and then trying again
-     */
-    public boolean isNetworkReachableAlertUserIfNot() {
-        boolean isReachable = isNetworkReachable();
-        if (!isReachable) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setTitle("No Network Connection");
-            builder.setMessage("The Network is unavailable. Please try your request again later.");
-            builder.setPositiveButton("OK", null);
-            builder.create().show();
-        }
-        return isReachable;
-    }
-
     /***
      *
      * @return
