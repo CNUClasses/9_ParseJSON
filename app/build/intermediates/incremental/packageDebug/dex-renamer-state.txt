@@ -1,0 +1,7 @@
+#Tue Mar 14 17:32:57 EDT 2017
+base.0=/home/keith/CPSC475_examples/9_ParseJSON/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_5ab714363e932f7579f2d0c5978eca2bdd8fbed5
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/home/keith/CPSC475_examples/9_ParseJSON/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_3e8d9fa89110c4876c2cadc9dc73f1e5383dbea5/classes.dex
+base.1=/home/keith/CPSC475_examples/9_ParseJSON/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_3e8d9fa89110c4876c2cadc9dc73f1e5383dbea5
+file.0=/home/keith/CPSC475_examples/9_ParseJSON/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_5ab714363e932f7579f2d0c5978eca2bdd8fbed5/classes.dex

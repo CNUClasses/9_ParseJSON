@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/keith/CPSC475_examples/9_ParseJSON/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-ldrtl-v23/values-ldrtl-v23.xml",
+            "map": [
+                {
+                    "source": "/home/keith/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.1.1.aar/817b9b3b4b49e9cd3f7f9a208798e8c2/res/values-ldrtl-v23/values-ldrtl-v23.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "240",
+                        "endColumns": "112",
+                        "endOffsets": "348"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        }
+    ]
+}
