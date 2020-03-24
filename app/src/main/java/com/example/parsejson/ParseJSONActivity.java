@@ -10,7 +10,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.support.design.widget.Snackbar;
+import com.google.android.material.snackbar.Snackbar;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -19,7 +19,7 @@ import org.json.JSONObject;
 
 public class ParseJSONActivity extends Activity {
 	private static final String TAG = "ParseJSON";
-	private static final String MYURL = "http://www.pcs.cnu.edu/~kperkins/Economist.txt";
+	private static final String MYURL = "https://www.pcs.cnu.edu/~kperkins/Economist.txt";
 
 	public static final int MAX_LINES = 15;
 	private static final int SPACES_TO_INDENT_FOR_EACH_LEVEL_OF_NESTING = 2;

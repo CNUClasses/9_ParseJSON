@@ -7,7 +7,6 @@ package com.example.parsejson;
 public class DownloadTask_KP extends DownloadTask {
     ParseJSONActivity myActivity;
 
-
     DownloadTask_KP(ParseJSONActivity activity) {
         attach(activity);
     }
