@@ -6,11 +6,10 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
-import com.google.android.material.snackbar.Snackbar;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -29,6 +28,7 @@ public class ParseJSONActivity extends Activity {
 	private TextView tvlastname;
 	private Button bleft;
 	private Button bright;
+	private ProgressBar pBar;
 	JSONArray jsonArray;
 
 	int numberentries = -1;
@@ -38,9 +38,6 @@ public class ParseJSONActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		// This is the simple circular progress bar which works in the window
-		// title
-		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setContentView(R.layout.activity_parse_json);
 
 		tvRaw = (TextView) findViewById(R.id.tvRaw);
@@ -48,6 +45,7 @@ public class ParseJSONActivity extends Activity {
 		tvlastname = (TextView) findViewById(R.id.tvlastname);
 		bleft = (Button) findViewById(R.id.bleft);
 		bright = (Button) findViewById(R.id.bright);
+		pBar = (ProgressBar)findViewById(R.id.progressbar);
 
 		// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// make sure the network is up before you attempt a connection
@@ -55,7 +53,8 @@ public class ParseJSONActivity extends Activity {
 		// try later? remember make users life easier
 		ConnectivityCheck myCheck = new ConnectivityCheck(this);
 		if (myCheck.isNetworkReachable()) {
-			
+			enableProgressBar(true);
+
 			//A common async task
 			DownloadTask_KP myTask = new DownloadTask_KP(this);
 
@@ -65,14 +64,32 @@ public class ParseJSONActivity extends Activity {
 			// //////////////////////////////////////////////////// demo this
 			// telescoping initilization pattern
 			//myTask.setnameValuePair("screen_name", "maddow").setnameValuePair("day", "today");
-			// myTask.execute(TWITTER_RACHEL);
+			// myTask.execute(MYURL);
 
 			myTask.execute(MYURL);
 		}
+		else
+			Toast.makeText(this,"Uh Ohh cannot reach network",Toast.LENGTH_SHORT).show();
+	}
+
+	private void enableProgressBar(boolean bVisible) {
+		if(bVisible){
+			//OK we are going to download something, show the progressbar to keep the user occupied
+			pBar.setVisibility(View.VISIBLE);
+
+			//disable user interaction with rest of UI
+			getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+					WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+		}
+		else{
+			pBar.setVisibility(View.INVISIBLE);
+			getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+		}
+
+
 	}
 
 	public void setText(String string) {
-		setProgressBarIndeterminateVisibility(false);
 		tvRaw.setText(string);
 
 		// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -84,6 +101,7 @@ public class ParseJSONActivity extends Activity {
 	}
 
 	public void processJSON(String string) {
+		enableProgressBar(false);
 		try {
 			JSONObject jsonobject = new JSONObject(string);
 			
@@ -121,8 +139,7 @@ public class ParseJSONActivity extends Activity {
 		}
 
 		// gotta wrap JSON in try catches cause it throws an exception if you
-		// try to
-		// get a value that does not exist
+		// try to get a value that does not exist
 		try {
 			JSONObject jsonObject = jsonArray.getJSONObject(i);
 			tvfirstname.setText(jsonObject.getString("firstname"));
@@ -161,12 +178,4 @@ public class ParseJSONActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_parse_json, menu);
 		return true;
 	}
-
-//	public void doRefresh(View view) {
-//		ConnectivityCheck myCheck = new ConnectivityCheck(this);
-//		if (myCheck.isNetworkReachable())
-//			Toast.makeText(this,"Hurray The network works!",Toast.LENGTH_SHORT).show();
-//		else
-//			Toast.makeText(this,"No Networking",Toast.LENGTH_SHORT).show();
-//	}
 }

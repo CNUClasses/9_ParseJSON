@@ -35,6 +35,8 @@ public abstract class DownloadTask extends AsyncTask<String, Void, String> {
 	 *         characters URLEncoded usage mytask.setnameValuePair("param1",
 	 *         "value1").setnameValuePair("param2",
 	 *         "value2").setnameValuePair("param3", "value3")....
+	 *         results in
+	 *         myQuery=?param1=value1&param2=value2&param3=value3
 	 */
 	public DownloadTask setnameValuePair(String name, String value) {
 		try {
