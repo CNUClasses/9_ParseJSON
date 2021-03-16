@@ -18,9 +18,9 @@ import org.json.JSONObject;
 
 public class ParseJSONActivity extends Activity {
 	private static final String TAG = "ParseJSON";
-//	private static final String MYURL = "https://www.pcs.cnu.edu/~kperkins/Economist.txt";
-	private static final String MYURL = "https://www.pcs.cnu.edu/~kperkins/pets/pets.json";
-
+	private static final String MYURL = "https://www.pcs.cnu.edu/~kperkins/Economist.txt";
+//	private static final String MYURL = "https://www.pcs.cnu.edu/~kperkins/pets/pets.json";
+//
 	public static final int MAX_LINES = 15;
 	private static final int SPACES_TO_INDENT_FOR_EACH_LEVEL_OF_NESTING = 2;
 
@@ -86,8 +86,6 @@ public class ParseJSONActivity extends Activity {
 			pBar.setVisibility(View.INVISIBLE);
 			getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 		}
-
-
 	}
 
 	public void setText(String string) {
